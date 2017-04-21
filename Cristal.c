@@ -2,17 +2,28 @@
 #include <stdlib.h> 
 <<<<<<< Updated upstream
  
- 
+int* splitTotal(int n, int l){ 
+  int *matriz; 
+  int pos=1; 
+  while(pos<=l){ 
+    matriz[l-pos]= n%10;
+    n=n/10; 
+    pos++; 
+  }
+  return matriz; 
+} 
 int main(int argc, char const *argv[]) 
 { 
-  int s, n; 
+  int s, n,largo;
+  char m[8]; 
   while (scanf("%i %i\n",&s,&n)==2){ 
     if (s == 0 && n == 0){ 
       break; 
     } 
     // separar numero 
- 	
- 	int largo = 4;
+ 	sprintf(m , "%d",n);
+  	printf("%s\n", m);
+    largo=strlen(m);  
     //imprimir 
     for (int i = 0; i < (2*s)+3; ++i) // en este for se imprime cada linea 
     {
