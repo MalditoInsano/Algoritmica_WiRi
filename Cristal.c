@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
-
+#include "molde.h"
 int main(int argc, char const *argv[]){
 	if(argc != 1){
 		fprintf(stderr, "\x1b[31m error, ejecutar como ./prog \n \x1b[0m");
