@@ -1,16 +1,6 @@
 #include <stdio.h> 
 #include <stdlib.h> 
 #include <string.h> 
-int* splitTotal(int n, int l){ 
-  int *matriz; 
-  int pos=1; 
-  while(pos<=l){ 
-    matriz[l-pos]= n%10;
-    n=n/10; 
-    pos++; 
-  }
-  return matriz; 
-} 
 
 int main(int argc, char const *argv[]) 
 { 
@@ -25,24 +15,32 @@ int main(int argc, char const *argv[])
 				 	    {1,1,1,1,1,1,1},
 					    {1,1,1,1,0,1,1}};	
 
-  int s, n,largo;
-  char m[8]; 
-  while (scanf("%i %i\n",&s,&n), 2){ 
+  int s, n, largo, aux;
+  int numero[7];
+
+  while (scanf("%i %i\n",&s,&n), 2){  /// COMO DIABLOS HAGO PARA QUE NO TENGA 1 ENTRADA DE DELAY?!
+
     if (s == 0 && n == 0){ 
       break; 
     } 
-    // separar numero 
- 	sprintf(m , "%d",n);
-  	printf("%s\n", m);
-    largo=strlen(m);  
+    largo = 0;
+
+    // separar numero y calcular largo
+    aux = n;
+    while (aux != 0){
+		numero[7-largo] = (aux%10);
+		aux = aux/10;
+		largo++;
+	}
+
     //imprimir 
     for (int i = 0; i < (2*s)+3; ++i) // en este for se imprime cada linea 
     {
 		if (i == 0){   /// linea superior 
-			for (int k = 0; k < largo; ++k)
+			for (int k = (8 - largo); k < 8; ++k)
 			{
 
-				if (molde[][0]){
+				if (moldes[numero[k]][0]){      /// moldes[numero][posicion]
 					printf(" ");
 					for (int m = 0; m < s; ++m){
 						printf("-");
@@ -60,9 +58,9 @@ int main(int argc, char const *argv[])
 			printf("\n");
 		} 
 		else if (i > 0 && i < (s + 1)){  // lineas intermedias 1 
-			for (int k = 0; k < largo; ++k)
+			for (int k = (8 - largo); k < 8; ++k)
 			{
-				if (molde[atoi(m[k])][1]){
+				if (moldes[numero[k]][1]){
 					printf("|");
 				}
 				else{
@@ -72,7 +70,7 @@ int main(int argc, char const *argv[])
 				{
 					printf(" ");
 				}
-				if (molde[atoi(m[k])][2]){
+				if (moldes[numero[k]][2]){
 					printf("|");
 				}
 				else{
@@ -82,9 +80,9 @@ int main(int argc, char const *argv[])
 			printf("\n");
 		} 
 		else if (i == (s + 1)){  // linea central  
-			for (int k = 0; k < largo; ++k)
+			for (int k = (8 - largo); k < 8; ++k)
 			{
-				if (molde[atoi(m[k])][3]){
+				if (moldes[numero[k]][3]){
 					printf(" ");
 					for (int m = 0; m < s; ++m){
 						printf("-");
@@ -102,9 +100,9 @@ int main(int argc, char const *argv[])
 			printf("\n");
 		} 
 		else if (i > (s + 1) && i < (2*s + 2)){  // lineas intermedias 2 
-			for (int k = 0; k < largo; ++k)
+			for (int k = (8 - largo); k < 8; ++k)
 			{
-				if (molde[atoi(m[k])][4]){
+				if (moldes[numero[k]][4]){
 					printf("|");
 				}
 				else{
@@ -114,7 +112,7 @@ int main(int argc, char const *argv[])
 				{
 					printf(" ");
 				}
-				if (molde[atoi(m[k])][5]){
+				if (moldes[numero[k]][5]){
 					printf("|");
 				}
 				else{
@@ -124,9 +122,9 @@ int main(int argc, char const *argv[])
 			printf("\n");
 		} 
 		else if (i == (2*s +2)){   // linea inferior 
-			for (int k = 0; k < largo; ++k)
+			for (int k = (8 - largo); k < 8; ++k)
 			{
-				if (molde[atoi(m[k])][6]){
+				if (moldes[numero[k]][6]){
 					printf(" ");
 					for (int m = 0; m < s; ++m){
 						printf("-");
@@ -145,6 +143,7 @@ int main(int argc, char const *argv[])
 		} 
     } 
  	printf("\n");
+ 	
   } 
   return 0;
 }	
