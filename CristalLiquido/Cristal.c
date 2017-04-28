@@ -18,19 +18,29 @@ int main(int argc, char const *argv[])
   int s, n, largo, aux;
   int numero[7];
 
-  while (scanf("%i %i",&s,&n)== 2){
-
+  while (scanf("%i %i",&s,&n),2){
+  	
     if (s == 0 && n == 0){ 
       break; 
     } 
+    printf("\n");
     largo = 0;
 
     // separar numero y calcular largo
     aux = n;
-    while (aux != 0){
-		numero[7-largo] = (aux%10);
-		aux = aux/10;
-		largo++;
+    if(aux==0){
+    	numero[7]=0;
+    	largo++;
+    	aux=aux/10;
+    }
+    else{
+
+
+	    while (aux != 0){
+			numero[7-largo] = (aux%10);
+			aux = aux/10;
+			largo++;
+		}
 	}
 
     //imprimir 
@@ -147,3 +157,12 @@ int main(int argc, char const *argv[])
   } 
   return 0;
 }	
+
+
+/*Entradas:
+
+2 21345
+3 67890
+0 0
+
+*/
