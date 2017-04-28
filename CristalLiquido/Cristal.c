@@ -18,7 +18,7 @@ int main(int argc, char const *argv[])
   int s, n, largo, aux;
   int numero[7];
 
-  while (scanf("%i %i\n",&s,&n), 2){  /// COMO DIABLOS HAGO PARA QUE NO TENGA 1 ENTRADA DE DELAY?!
+  while (scanf("%i %i",&s,&n)== 2){
 
     if (s == 0 && n == 0){ 
       break; 
