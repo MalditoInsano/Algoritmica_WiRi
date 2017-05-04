@@ -1,6 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+
+int valorAbsoluto(int n){
+	if (n < 0){
+		return (-n);
+	}
+	else{
+		return n;
+	}
+}
+
 int main(int argc, char const *argv[])
 {
 	/*3 condiciones
@@ -17,6 +27,7 @@ int main(int argc, char const *argv[])
 	  Sólo comprueba la segunda condiciones, 
 	  faltan las otras 2*/
 
+	int rest;
 	int largo = ndatos[0];
 	int cond =1;
 	int pos=1;
@@ -26,7 +37,7 @@ int main(int argc, char const *argv[])
 	while(cond && (pos < largo)){
 		y= ndatos[pos];
 		z=ndatos[pos+1];
-		rest = abs(y-z);
+		rest = valorAbsoluto(y-z);
 		if(rest>=largo){
 			cond=0;
 			printf("Not Jolly\n");
