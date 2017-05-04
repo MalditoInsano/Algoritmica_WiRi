@@ -2,26 +2,6 @@
 #include <stdlib.h> 
 #include <string.h> 
 
-void imprimir(int *array, int largo){
-	for (int i = 0; i < largo; ++i)
-	{
-		printf("%i ", array[i]);
-	}
-}
-
-int isIn(int *array, int largo, int numero){
-	int is = 0;
-	int i = 0;
-	while (!is && (i < largo)){
-		if (numero == array[i]){
-			is = 1;
-			array[i] = 0;
-		}
-		++i;
-	}
-	return is;
-}
-
 int lol(int *array, int largo, int numero){
 	int is = 0;
 	int i = 0;
@@ -48,7 +28,7 @@ int valorAbsoluto(int n){
 
 int main(int argc, char const *argv[])
 {
-	int largo, s, d;
+	int largo, d;
 	int jolly;
 	int *serie;
 	int *diferencias;
@@ -58,8 +38,6 @@ int main(int argc, char const *argv[])
 		if (largo == 0){
 			break;
 		}
-
-		// Se inicializan variables a utilizar. Se guarda cada valor del input en arreglo.
 		else{
 			serie = malloc(largo * sizeof(int));
 			diferencias = malloc((largo-1) * sizeof(int));
@@ -71,7 +49,6 @@ int main(int argc, char const *argv[])
 			}
 		}
 
-		// Calcula todas las diferencias. Se guardan en arreglo.
 		for (int a = 1; a < largo; ++a)
 		{
 			diferencias[a-1] = valorAbsoluto(serie[a] - serie[a-1]);
@@ -83,12 +60,6 @@ int main(int argc, char const *argv[])
 			jolly = lol(base, largo, diferencias[d]);
 			++d;
 		}
-		
-		/*
-		imprimir(serie, largo);
-		printf(" - ");
-		imprimir(diferencias, (largo-1));
-		*/
 
 		if (jolly){
 			printf("Jolly\n");
@@ -97,11 +68,11 @@ int main(int argc, char const *argv[])
 			printf("Not jolly\n");
 		}
 
-	}
+		free(serie);
+		free(diferencias);
+		free(base);
 
-	free(serie);
-	free(diferencias);
-	free(base);
+	}
 
 	return 0;
 }
