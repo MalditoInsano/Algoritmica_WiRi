@@ -70,7 +70,7 @@ int main(int argc, char const *argv[])
 
 		free(serie);
 		free(diferencias);
-		free(base);//XD
+		free(base);//XD	
 
 	}
 
