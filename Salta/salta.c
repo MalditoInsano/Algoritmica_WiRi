@@ -1,7 +1,7 @@
 #include <stdio.h> 
 #include <stdlib.h> 
 #include <string.h> 
-
+#include <math.h>
 int lol(int *array, int largo, int numero){
 	int is = 0;
 	int i = 0;
@@ -16,7 +16,7 @@ int lol(int *array, int largo, int numero){
 	}
 	return is;
 }
-
+//innecesario 
 int valorAbsoluto(int n){
 	if (n < 0){
 		return (-n);
@@ -51,7 +51,7 @@ int main(int argc, char const *argv[])
 
 		for (int a = 1; a < largo; ++a)
 		{
-			diferencias[a-1] = valorAbsoluto(serie[a] - serie[a-1]);
+			diferencias[a-1] = abs(serie[a] - serie[a-1]);
 			base[a-1] = a;
 		}
 
@@ -70,7 +70,7 @@ int main(int argc, char const *argv[])
 
 		free(serie);
 		free(diferencias);
-		free(base);
+		free(base);//XD
 
 	}
 
