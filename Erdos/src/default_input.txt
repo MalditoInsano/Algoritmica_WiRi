@@ -1,0 +1,20 @@
+2
+4 3
+Smith, M.N., Martin, G., Erdos, P.: Newtonian forms of prime factors
+Erdos, P., Reisig, W.: Stuttering in petri nets
+Smith, M.N., Chen, X.: First order derivates in structured programming
+Jablonski, T., Hsueh, Z.: Selfstabilizing data structures
+Smith, M.N.
+Hsueh, Z.
+Chen, X.
+
+5 4
+Sanhueza, S., Morales, A., Delgado, J.: The Wiries
+Melita, R., Rojas, J., Quezada, F., Erdos, P.: Death Knights
+Rojas, J., Vera, D., Vera, L.: Non deterministic Problems
+Vera, L., Jelvez, I., Saez, P., Higuera, M.: Data and algorithms Structures
+Jelvez, I., Nomnom, D., Zambrano, S., Soto, M.: The Ritus Begining
+Morales, A.
+Vera, D.
+Soto, M.
+Saavedra, D.
